@@ -1,0 +1,20 @@
+version: '3.1'
+services:
+  wordpress:
+    container_name: dual.gonzalonazareno.org
+    image: iesgn/dual
+    restart: always
+    environment:
+    ports:
+      - 8081:80
+  db:
+    container_name: mariadb_dual.gonzalonazareno.org
+    image: mariadb
+    restart: always
+    environment:
+      MARIADB_DATABASE: bd_wp
+      MARIADB_USER: user_wp
+      MARIADB_PASSWORD: asdasd
+      MARIADB_ROOT_PASSWORD: asdasd
+    volumes:
+      - ./mysql:/var/lib/mysql
